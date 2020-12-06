@@ -12,7 +12,7 @@
 		></script>
 		<link rel="preconnect" href="https://fonts.gstatic.com" />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800&display=swap"
 			rel="stylesheet"
 		/>
 		<link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -24,9 +24,7 @@
 		<script defer src="script.js"></script>
 	</head>
 
-	<body class="pageHome">
-		<div class="backToTop" onclick="backToTop()"><i class="fas fa-angle-up"></i></div>
-
+	<body>
 		<div class="fixedItemsContainer">
 			<div class="loadingIcon">
 				<svg x="0px" y="0px" viewBox="0 0 87 87" style="fill: #fff; height: 26px">
@@ -53,9 +51,9 @@
 		<header class="headerContainer">
 			<a class="title" onclick="goToPage('index.html')"><b>CONEY</b></a>
 			<div class="headerToolBar">
-				<a class="home active" onclick="goToPage('index.html')">HOME</a>
+				<a class="home" onclick="goToPage('index.html')">HOME</a>
 				<a class="login" onclick="goToPage('login.html')">LOGIN</a>
-				<a class="register" onclick="goToPage('register.html')">REGISTER</a>
+				<a class="register active" onclick="goToPage('register.html')">REGISTER</a>
 
 				<div class="iconColor">
 					<!-- target="blank" - atidaro naujame tabe -->
@@ -92,17 +90,30 @@
 			</div>
 		</header>
 
-		<section class="bannerContainer">
-			<img src="banner_title.png" alt="text" />
-			<br />
-			<span>Developing inspiration</span>
+		<section class="mainContent">
+			<div class="registerContainer" id="registerForm">
+				<h2>REGISTER</h2>
+				<div class="formField">
+					<label>NAME:</label><br />
+					<input type="text" name="name" />
+				</div>
+				<br />
+				<div class="formField">
+					<label>PASSWORD:</label><br />
+					<input type="password" name="passwordOne" />
+				</div>
+				<br />
+				<div class="formField">
+					<label>CONFIRM PASSWORD:</label><br />
+					<input type="password" name="passwordTwo" />
+				</div>
+				<br />
+				<div id="formErrors"></div>
+				<div class="formField">
+					<input type="submit" value="OK" onclick="register(event)" />
+				</div>
+			</div>
 		</section>
-		<div class="dateSelectContainer">
-			<select id="dateSelect" onchange="filterByDate()"></select>
-			<a id="newPost" onclick="goToNewPost()">CREATE NEW POST</a>
-		</div>
-
-		<section class="mainContent home"></section>
 
 		<hr class="hrOtherInfoContainer" />
 

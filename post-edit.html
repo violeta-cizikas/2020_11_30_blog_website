@@ -1,0 +1,141 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>blog website _ 2020.11.30</title>
+		<link rel="stylesheet" href="style.css" />
+
+		<!-- DEFER butina irasyti, kad uzkrautu koda nuo virsaus, jei script.js ikeliame pradzioje -->
+		
+		<script src="https://kit.fontawesome.com/42762d49f1.js" crossorigin="anonymous"></script>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+		<script  defer src="script.js"></script>
+
+	</head>
+
+	<body class="pagePostEdit">
+
+		<div class="fixedItemsContainer">
+			<div class="loadingIcon"><svg x="0px" y="0px" viewBox="0 0 87 87" style="fill: #fff;height: 26px;">
+						<path d="M55.4,81.5c6.1-11.1,5.2-16.1-4.3-24.3c6.1-3.5,9.5-8.5,9.1-15.7c-0.5-8.2-7.7-14.7-16.3-14.6
+							c-8.5,0.1-15.6,6.7-15.9,15c-0.3,8.5,5.9,15.8,14.3,16.6c1.4,0.1,2.8,0.2,4.2,0.5c5.9,1.2,10.2,6.7,9.8,12.6
+							c-0.4,6.4-5.5,11.4-11.8,11.7C24.9,84.2,5.9,68.5,3.2,49.3C-0.1,26.9,14.4,6.8,36.4,2.8c22.3-4,43.4,10,48.1,32
+							c4.3,20-8.6,41.2-28.4,46.7C55.9,81.5,55.6,81.5,55.4,81.5z"></path>
+					</svg></div>
+			<div class="shoppingCartIcon"><svg x="0px" y="0px" viewBox="0 0 24 24" style="fill: #ee2852; height: 16px;">
+						<circle cx="9" cy="21" r="2"></circle>
+						<circle cx="20" cy="21" r="2"></circle>
+						<path d="M23.8,5.4C23.6,5.1,23.3,5,23,5H6.8L6,0.8C5.9,0.3,5.5,0,5,0H1C0.4,0,0,0.4,0,1s0.4,1,1,1h3.2L5,6.2c0,0,0,0.1,0,0.1
+							l1.7,8.3C7,16,8.2,17,9.6,17c0,0,0,0,0.1,0h9.7c1.5,0,2.7-1,3-2.4L24,6.2C24,5.9,24,5.6,23.8,5.4z"></path>
+						</svg></div>
+		</div>
+
+		<header class="headerContainer">
+			<a class="title" onclick="goToPage('index.html')"><b>CONEY</b></a>
+
+			<div class="headerToolBar">
+				<a class="home" onclick="goToPage('index.html')">HOME</a>
+				<a class="login" onclick="goToPage('login.html')">LOGIN</a>
+				<a class="register" onclick="goToPage('register.html')">REGISTER</a>
+
+				<div class="iconColor">
+					<!-- target="blank" - atidaro naujame tabe -->
+					<a target="blank" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+					<a target="blank" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+					<a target="blank" href="https://www.pinterest.com/"><i class="fab fa-pinterest"></i></a>
+					<a target="blank" href="https://www.bloglovin.com/"><i class="fas fa-plus-square"></i></a>
+					<a target="blank" href="https://vimeo.com/"><i class="fab fa-vimeo"></i></a>
+					<a target="blank" href="https://rss.com/"><i class="fas fa-rss"></i></a>
+				</div>
+
+				<i style="background-color: #003cd4; color: #fff; padding: 8px; border-radius: 50%; transform: scaleX(-1);" class="fas fa-search"></i>
+				<i style="color: #fff; padding: 8px; border-radius: 50%; transform: scaleX(-1);" class="fas fa-bars menuHover"></i>				
+			</div>
+		</header>
+
+		<section class="mainContent">
+			<div class="postEditContainer" id="postEditForm">
+				<h2>CREATE / EDIT POST</h2>
+				<div class="formField">
+					<label>TITLE:</label><br/>
+					<input type="text" name="title">
+				</div>
+				<br/>
+				<div class="formField">
+					<label>IMAGE:</label><br/>
+					<input type="text" name="image">
+				</div>
+				<br/>	
+				<div class="formField">
+					<label>DESCRIPTION:</label><br/>
+					<input type="text" name="description">
+				</div>	
+				<br/>		
+				<div id="formErrors"></div>
+				
+				<div class="actions">
+					<input type="submit" value="OK" onclick="postEdit(event)">
+					<button class="delete" onclick="deletePost()">DELETE</button>					
+					<button class="cancel" onclick="cancelEditPost()">CANCEL</button>
+				</div>
+			</div>
+		</section>
+
+		<hr class="hrOtherInfoContainer">
+
+		<section class="otherInfoContainer">
+			
+			<div class="boxOne">
+				<span class="about">ABOUT THE BLOG</span>
+				<img src="woman.jpg" alt="woman"/>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat</p>
+			</div>
+
+			<div class="boxTwo">
+				<span class="join">JOIN US ON FACEBOOK!</span>
+				<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fenvato%2F&amp;tabs&amp;height=230&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId" style="border:none;overflow:hidden" scrolling="yes" frameborder="0" allowtransparency="true"></iframe>
+			</div>
+
+			<div class="boxThree">
+				<span class="latest">LATEST TWEETS</span>
+				<p><i class="fab fa-twitter"></i>&nbsp;&nbsp;<a target="blank" href="https://twitter.com/simonrichwright">@alexherder</a> hi <a target="blank" href="https://twitter.com/alexherder">@alexherder</a>, we can’t recommend anyone specific, but you can find a list of freelenacers working wit… <a target="blank" href="https://twitter.com/i/web/status/1238764977097445376">https://t.co/fs1gMcMOej</a></p>
+
+				<p><i class="fab fa-twitter"></i>&nbsp;&nbsp;<a target="blank" href="https://twitter.com/simonrichwright">@simonrichwright</a> Here’s an article to get you started with using our support platform: <a target="blank" href="https://helpcenter.qodeinteractive.com/hc/en-us/articles/360002745418-Welcome-to-Qode-Interactive-Help-Center">https://t.co/eiUoQNlHUh</a> Let… <a target="blank" href="https://twitter.com/i/web/status/1227620014620016647">https://t.co/PhSMKT4Rph</a></p>
+
+				<p><i class="fab fa-twitter"></i>&nbsp;&nbsp;<a target="blank" href="https://twitter.com/simonrichwright">@simonrichwright</a> Hi Simon, thank you for writing in and choosing our themes. We don't offer phone support, but you… <a target="blank" href="https://twitter.com/i/web/status/1227619997343719424">https://t.co/33tW2xRXMe</a></p>
+			</div>
+		</section>
+
+		<footer class="footerContainer">
+			<div class="follow">FOLLOW US ON INSTAGRAM</div>
+			<div class="imgCarousel">
+
+				<div><a target="blank" href="https://www.instagram.com/p/BOedhUsh4Zn/"><img src="footer_img_1.jpg" alt="notebook"/></a></div>
+				<div><a target="blank" href="https://www.instagram.com/p/BOedlF5hT4H/"><img src="footer_img_2.jpg" alt="clay"/></a></div>
+				<div><a target="blank" href="https://www.instagram.com/p/BOedaUDBhmP/"><img src="footer_img_3.jpg" alt="camper"/></a></div>
+				<div><a target="blank" href="https://www.instagram.com/p/BOedfeqBnCX/"><img src="footer_img_4.jpg" alt="people"/></a></div>
+				<div><a target="blank" href="https://www.instagram.com/p/BOeddGOh6MD/"><img src="footer_img_5.jpg" alt="man"/></a></div>
+				<div><a target="blank" href="https://www.instagram.com/p/BOedjJphX6t/"><img src="footer_img_6.jpg" alt="coffee"/></a></div>
+				
+			</div>
+
+			<div class="socialNetworksContainer">
+				<div class="socialNetworks">
+					<a target="blank" href="https://www.facebook.com/Select-Themes-1896919500602910/" class="facebook"><i class="fab fa-facebook-f">&nbsp;&nbsp;</i>FACEBOOK</a>
+					<a target="blank" href="https://twitter.com/SelectThemes?lang=en" class="twitter"><i class="fab fa-twitter">&nbsp;&nbsp;</i>TWITTER</a>
+					<a target="blank" href="https://www.instagram.com/selectthemes/" class="instagram"><i class="fab fa-instagram">&nbsp;&nbsp;</i>INSTAGRAM</a>
+					<a target="blank" href="https://www.pinterest.com/selectthemes/" class="pinterest"><i class="fab fa-pinterest">&nbsp;&nbsp;</i>PINTEREST</a>
+					<a target="blank" href="https://www.bloglovin.com/" class="bloglovin"><i class="fas fa-plus-square">&nbsp;&nbsp;</i>BLOGLOVIN</a>
+					<a target="blank" href="https://rss.com/" class="rss"><i class="fas fa-rss"></i>&nbsp;&nbsp;RSS</a>
+				</div>
+					<hr>
+				<div class="footerText"><a target="blank" href="https://qodeinteractive.com/theme-author/select-wordpress-themes/?_ga=2.191896622.505424843.1606927546-1040437044.1606726713">Made With Love By Select Themes</a></div>
+			</div>
+		</footer>
+
+			
+	</body>
+</html>

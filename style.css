@@ -1,10 +1,38 @@
 body {
-  font-family: Poppins,sans-serif;
-  padding: 0;
-  margin: 0;
-  /*display: flex;*/ /*nepaveldima per vaikus*/
+	font-family: Poppins, sans-serif;
+	padding: 0;
+	margin: 0;
+	/*display: flex; - nepaveldima per vaikus*/
 }
-.fixedItemsContainer .loadingIcon, 
+
+body.fadeOut {
+	transition: opacity 2s;
+	opacity: 0;
+}
+
+.backToTop {
+	background-color: #003cd4;
+	border-radius: 50%;
+	width: 35px;
+	height: 35px;
+	position: fixed;
+	right: 0;
+	bottom: 20px;
+	margin-right: 20px;
+	color: #fff;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	cursor: pointer;
+	z-index: 2;
+}
+
+.backToTop:hover {
+	background-color: #1f1f1f;
+}
+
+.fixedItemsContainer .loadingIcon,
 .fixedItemsContainer .shoppingCartIcon {
 	background-color: blue;
 	width: 50px;
@@ -14,23 +42,24 @@ body {
 	line-height: 50px;
 	display: flex;
 	align-items: center;
-	justify-content: center; 
+	justify-content: center;
 	cursor: pointer;
 }
 
 .fixedItemsContainer .loadingIcon {
 	background-color: #ef2853;
-	box-shadow: 0 0 5px 2px rgba(0,0,0,0.2);
+	box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
 }
 
 .fixedItemsContainer .shoppingCartIcon {
 	background-color: #fff;
-	box-shadow: 0 0 5px 2px rgba(0,0,0,0.2);
+	box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
 }
 .fixedItemsContainer {
 	position: fixed;
 	right: 0;
 	top: 400px;
+	z-index: 2;
 }
 
 .headerContainer {
@@ -46,28 +75,68 @@ body {
 
 .headerContainer .title {
 	font-size: 35px;
+	cursor: pointer;
 }
 
+.headerContainer a {
+	text-decoration: none;
+	color: #000;
+}
 .headerToolBar a {
 	font-size: 13px;
 	display: inline-block;
-	font-family: Montserrat,serif;
-    font-weight: 700;
-    margin: 9px;
-    letter-spacing: 1px;
-    cursor: pointer;
+	font-family: Montserrat, serif;
+	font-weight: 700;
+	margin: 9px;
+	letter-spacing: 1px;
+	cursor: pointer;
 }
 
 .headerToolBar a:hover {
-	color: #003cd4; 
-	border-bottom: 1px solid #003cd4;
-}
-.home {
 	color: #003cd4;
-	border-bottom: 1px solid #003cd4;
-	display: inline-block;
-	padding-bottom: 1px;
+	border-bottom: 2px solid #003cd4;
 }
+
+.headerToolBar i {
+	margin: 5px;
+}
+
+.iconColor {
+	display: inline-block;
+}
+.iconColor a i {
+	color: #000;
+}
+
+.iconColor a:hover {
+	border-bottom: none;
+}
+
+.iconColor a i:hover {
+	color: #003cd4;
+}
+
+.headerToolBar i {
+	cursor: pointer;
+}
+
+.headerToolBar i.menuHover {
+	background-color: #b8b7b7;
+}
+.headerToolBar i.menuHover:hover {
+	background-color: #003cd4;
+}
+
+.headerToolBar .active { /*aktyvus toolbaro nav linkas*/	
+	color: #003cd4;
+	border-bottom: 2px solid #003cd4;
+	display: inline-block;
+}
+
+.headerToolBar .active:hover {
+	border-bottom: 2px solid #003cd4;
+}
+
 .bannerContainer {
 	width: 100%;
 	height: 490px;
@@ -81,11 +150,11 @@ body {
 
 .bannerContainer img {
 	position: absolute;
-    display: block;
-    visibility: visible;
-    left: 338px;
-    top: 245px;
-    z-index: 5;
+	display: block;
+	visibility: visible;
+	left: 338px;
+	top: 245px;
+	z-index: 5;
 }
 
 .bannerContainer span {
@@ -93,14 +162,15 @@ body {
 	font-size: 22px;
 	display: block;
 	font-weight: 300;
-	letter-spacing: 0px; 
+	letter-spacing: 0px;
 }
 
 .footerContainer {
 	margin-top: 100px;
 }
+
 .footerContainer .follow {
-	font-family: Montserrat,sans-serif;
+	font-family: Montserrat, sans-serif;
 	color: #313131;
 	font-weight: 700;
 	text-align: center;
@@ -108,42 +178,365 @@ body {
 	margin: 45px;
 	letter-spacing: 1px;
 }
+
+.imgCarousel {
+	display: flex;
+	cursor: pointer;
+}
+
+.footerContainer .imgCarousel img {
+	width: 253px;
+	height: 253px;
+}
+
+.footerContainer .imgCarousel div::after { /*patamsejimas ant virsaus, kad po apacia nebutu*/	
+	pointer-events: none; /*ignoruoja klikus*/
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.25);
+	opacity: 0;
+	z-index: 2;
+	transition: opacity 0.3s ease-in-out;
+}
+
+
+.footerContainer .imgCarousel div {
+	position: relative;
+}
+
+.footerContainer .imgCarousel div:hover::after {
+	opacity: 1;
+}
+
 .socialNetworksContainer {
 	background-color: #0d0d0e;
 }
+
 .socialNetworks {
 	display: flex;
 	justify-content: space-between;
 	width: 1100px;
-    margin: 0 auto;
+	margin: 0 auto;
 }
+
 .socialNetworks a {
 	text-align: center;
 	padding-bottom: 33px;
-	font-family: Montserrat,sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: #fff;
-    padding-bottom: 33px;
-    padding-top: 33px;
-    cursor: pointer;
-    letter-spacing: 1px;
+	font-family: Montserrat, sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	color: #fff;
+	padding-bottom: 33px;
+	padding-top: 33px;
+	cursor: pointer;
+	letter-spacing: 1px;
+	text-decoration: none;
 }
+
 .socialNetworks a:hover {
 	color: #777;
 }
-hr {
+
+.hrOtherInfoContainer {
+	margin-bottom: 50px;
+}
+
+.otherInfoContainer {
+	display: flex;
+	justify-content: center;
+}
+
+.otherInfoContainer .boxOne,
+.boxTwo,
+.boxThree {
+	width: 375px;
+	height: 370px;
+	margin: 15px;
+}
+
+.otherInfoContainer .about,
+.otherInfoContainer .join,
+.otherInfoContainer .latest {
+	font-size: 12px;
+	text-align: center;
+	font-family: Montserrat, sans-serif;
+	font-weight: 700;
+	width: 100%; /*plotis veikia, tik ant display: block;(!)*/
+	margin: 20px 0;
+	display: block;
+}
+
+.otherInfoContainer p {
+	font-family: Poppins, sans-serif;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 25px;
+	letter-spacing: 0.2px;
+	color: #777;
+}
+
+.otherInfoContainer .boxOne img {
+	width: 100%;
+}
+.footerContainer hr {
 	border-color: #414141;
 	width: 1200px;
-    margin: 0 auto;
-    border-right: none;
+	margin: 0 auto;
+	border-right: none;
 }
 .footerContainer .footerText {
 	text-align: center;
-	color: #777777;
 	font-size: 14px;
-	font-family: Poppins,sans-serif;
-    font-weight: 300;
-    padding-bottom: 33px;
-   	padding-top: 33px;
+	font-family: Poppins, sans-serif;
+	font-weight: 300;
+	padding-bottom: 33px;
+	padding-top: 33px;
+}
+
+.otherInfoContainer .boxTwo iframe {
+	margin: 0 auto;
+	width: 340px;
+	margin-left: 20px;
+}
+.footerContainer .footerText a {
+	text-decoration: none;
+	color: #777;
+}
+.boxThree .fa-twitter {
+	font-size: 16px;
+	color: #003cd4;
+}
+
+.otherInfoContainer .boxThree p {
+	padding-bottom: 20px;
+	color: #777;
+}
+
+.otherInfoContainer .boxThree a {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.otherInfoContainer .boxThree a:visited {
+	/*visited - kai jau aplankytas, kad nesikeistu spalva ir butu, tik ta, kuria nurodziau*/
+	color: #777;
+}
+.otherInfoContainer .boxThree a:hover {
+	color: #003cd4;
+}
+
+.mainContent {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 20px;
+	background-color: #ff7f50;
+	margin: 20px auto;
+	border-radius: 10px;
+	color: #fff;
+}
+
+.mainContent.home {
+	width: 100%;
+	background-color: #fff;
+	margin: 20px auto;
+	border-radius: 0;
+	color: #000;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.post {
+	width: 300px;
+	margin: 15px;
+	word-break: break-word;
+	/*break-word - jei imanoma, tai neperkelia zodzio 
+	per viduri i kita eilute, bet, jei zodis per ilgas,
+	tai vis vien perkels viduri zodzio*/
+	margin-top: 30px;
+}
+
+.pagePost .post p {
+	width: 1000px;
+}
+
+.pagePost .post h1 {
+	width: 1000px;
+}
+
+.pagePost .post img {
+	border-radius: 10px;
+}
+.post img {
+	width: 100%;
+	filter: saturate(0); /*filtras, pilkina betkokius elementus*/
+	padding-bottom: 10px;
+}
+
+.post a {
+	letter-spacing: 0.5px;
+	color: #000;
+	font-family: Montserrat, sans-serif;
+	font-weight: 700;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.post a:hover {
+	color: #003cd4;
+	text-decoration: underline;
+}
+
+.post p {
+	font-family: Poppins, sans-serif;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 25px;
+	letter-spacing: 0.2px;
+	color: #777;
+}
+.post.short p {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis; /*si taisykle apkerpa teksta ir padeda tritaski*/
+}
+
+.post h1 {
+	font-family: Poppins, sans-serif;
+	color: #000;
+	font-size: 18px;
+	font-weight: 500;
+	text-transform: capitalize; /*padaro teksto zodziu pirmasias raides didziosiomis*/
+	letter-spacing: 1px;
+}
+
+.post span {
+	color: #000;
+	font-size: 12px;
+	font-family: Montserrat, sans-serif;
+	font-weight: 700;
+}
+
+.post i {
+	color: #000;
+	cursor: pointer;
+	margin: 2px;
+	float: right;
+}
+
+.post i:hover {
+	color: #003cd4;
+}
+
+#newPost {
+	display: none;
+	width: 200px;
+	height: 30px;
+	position: absolute;
+	text-align: center;
+	line-height: 30px;
+	border-radius: 5px;
+}
+
+.loggedin #newPost {
+	display: block;
+	font-size: 13px;
+	font-family: Montserrat, serif;
+	font-weight: 700;
+	letter-spacing: 1px;
+	cursor: pointer;
+	background-color: #003cd4;
+	color: #fff;
+}
+
+.loggedin #newPost:hover {
+	background-color: #ff7f50;
+}
+
+.actions {
+	display: none;
+}
+
+.postView {
+	margin-left: 13px;
+}
+
+.postView button,
+.actions button {
+	border-radius: 5px;
+	border: none;
+	margin-right: 10px;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.postView button:focus,
+.actions button:focus {
+	outline: none;
+}
+
+.actions.newPost .edit,
+.actions.newPost .delete {
+	display: none;
+}
+
+.pagePost .actions .cancel {
+	display: none;
+}
+
+.dateSelectContainer {
+	width: 100%;
+	position: relative;
+	min-height: 30px;
+}
+
+.dateSelectContainer #dateSelect {
+	position: absolute;
+	right: 0;
+	border: none;
+	width: 200px;
+	height: 30px;
+	line-height: 30px;
+	text-transform: uppercase;
+	border-radius: 5px;
+	background-color: #003cd4;
+	color: #fff;
+	font-size: 13px;
+	font-family: Montserrat, serif;
+	font-weight: 700;
+	letter-spacing: 1px;
+	cursor: pointer;
+}
+
+.dateSelectContainer #dateSelect:hover {
+	background-color: #ff7f50;
+}
+
+.dateSelectContainer #dateSelect:focus {
+	outline: none;
+}
+
+input {
+	border-radius: 5px;
+	border: none;
+	background: #fff;
+}
+
+input:focus {
+	outline: none;
+}
+
+input[type="submit"] {
+	margin-right: 10px;
+	padding: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+input[type="submit"]:focus {
+	outline: none;
 }
