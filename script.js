@@ -189,65 +189,65 @@ function goToPage(url) {
 	return false;
 }
 
-if (body.className.indexOf("pageHome") > -1) {
-	function getPosts() {
-		let mainContent = document.getElementsByClassName("mainContent")[0];
-		fetch("http://167.99.138.67:1111/getallposts")
-			.then((res) => res.json())
-			.then((data) => {
-				console.log(data);
-				posts = data.data;
-				let dates = {
-					// {} - zymimas tuscias objektas(pvz.: sukurimo metu - title: 'sdasd')
-				};
-				// pvz.: po sukurimo i objekta irasyti naujus property'cius dates.title = 'sddsds', dates['title'] = 'asdsaa'
+// if (body.className.indexOf("pageHome") > -1) {
+// 	function getPosts() {
+// 		let mainContent = document.getElementsByClassName("mainContent")[0];
+// 		fetch("http://167.99.138.67:1111/getallposts")
+// 			.then((res) => res.json())
+// 			.then((data) => {
+// 				console.log(data);
+// 				posts = data.data;
+// 				let dates = {
+// 					// {} - zymimas tuscias objektas(pvz.: sukurimo metu - title: 'sdasd')
+// 				};
+// 				// pvz.: po sukurimo i objekta irasyti naujus property'cius dates.title = 'sddsds', dates['title'] = 'asdsaa'
 
-				//Each - panasiai kaip map (ciklas per masyva), o antras data - masyvas griztantis is backend'o
-				data.data.forEach((post) => {
-					//new Date - JS datos klases standartas ir esant backtick'u viduje, - paverciamas i string'a
-					let date = new Date(post.timestamp);
-					const monthNames = [
-						"January",
-						"February",
-						"March",
-						"April",
-						"May",
-						"June",
-						"July",
-						"August",
-						"September",
-						"October",
-						"November",
-						"December",
-					];
-					dates[`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`] = true;
-					let dateFormat = `${
-						monthNames[date.getMonth()]
-					} ${date.getDate()}, ${date.getFullYear()}`;
-					mainContent.innerHTML += `<div class="post short">
-				<img src="${post.image}" alt=""/>
-				<span>${dateFormat}</span> 
-				<h1>${post.title}</h1>
-				<p>${post.description}</p>
-				<a onclick="goToPost('${post.id}')">READ MORE</a>
-				<i class="fab fa-pinterest" onclick="clickpinterest()"></i>
-				<i class="fab fa-twitter" onclick="clicktwitter()"></i>
-				<i class="fab fa-facebook-f" onclick="clickfacebook()"></i>
+// 				//Each - panasiai kaip map (ciklas per masyva), o antras data - masyvas griztantis is backend'o
+// 				data.data.forEach((post) => {
+// 					//new Date - JS datos klases standartas ir esant backtick'u viduje, - paverciamas i string'a
+// 					let date = new Date(post.timestamp);
+// 					const monthNames = [
+// 						"January",
+// 						"February",
+// 						"March",
+// 						"April",
+// 						"May",
+// 						"June",
+// 						"July",
+// 						"August",
+// 						"September",
+// 						"October",
+// 						"November",
+// 						"December",
+// 					];
+// 					dates[`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`] = true;
+// 					let dateFormat = `${
+// 						monthNames[date.getMonth()]
+// 					} ${date.getDate()}, ${date.getFullYear()}`;
+// 					mainContent.innerHTML += `<div class="post short">
+// 				<img src="${post.image}" alt=""/>
+// 				<span>${dateFormat}</span> 
+// 				<h1>${post.title}</h1>
+// 				<p>${post.description}</p>
+// 				<a onclick="goToPost('${post.id}')">READ MORE</a>
+// 				<i class="fab fa-pinterest" onclick="clickpinterest()"></i>
+// 				<i class="fab fa-twitter" onclick="clicktwitter()"></i>
+// 				<i class="fab fa-facebook-f" onclick="clickfacebook()"></i>
 								
-				</div>`;
-				});
-				console.log(dates);
-				// sukiamas datu pasirinkimas
-				let dateSelect = document.getElementById("dateSelect");
-				dateSelect.innerHTML = "<option value='all'>all</option>";
-				Object.keys(dates).forEach((date) => {
-					dateSelect.innerHTML += `<option value="${date}">${date}</option>`; //naudojamas, tik html <select></select> viduje ir reiskia, tik viena pasirinkima, kuri galima paspausti
-				});
-			});
-	}
+// 				</div>`;
+// 				});
+// 				console.log(dates);
+// 				// sukiamas datu pasirinkimas
+// 				let dateSelect = document.getElementById("dateSelect");
+// 				dateSelect.innerHTML = "<option value='all'>all</option>";
+// 				Object.keys(dates).forEach((date) => {
+// 					dateSelect.innerHTML += `<option value="${date}">${date}</option>`; //naudojamas, tik html <select></select> viduje ir reiskia, tik viena pasirinkima, kuri galima paspausti
+// 				});
+// 			});
+// 	}
 
-	getPosts();
-}
+// 	getPosts();
+// }
 
 function clickfacebook() {
 	window.open(

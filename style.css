@@ -488,7 +488,7 @@ body.fadeOut {
 	display: none;
 }
 
-.dateSelectContainer {
+/*.dateSelectContainer {
 	width: 100%;
 	position: relative;
 	min-height: 30px;
@@ -518,7 +518,7 @@ body.fadeOut {
 
 .dateSelectContainer #dateSelect:focus {
 	outline: none;
-}
+}*/
 
 input {
 	border-radius: 5px;
